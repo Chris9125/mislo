@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block main %}
+        <form action = "/create_room" method="post">
+            <div class="form-group">
+            <label for="name">Group Name:</label>
+                <input type = "text" name="name" placeholder="Name" required autofocus class="form-control"></input>
+                <br><br>
+            </div>
+            <div class="form-group">
+            <label for="description">Description:</label>
+                <input type = "text" name="description" placeholder="Description" required autofocus class="form-control"></input>
+                <br>
+                <br>
+            </div>
+            <div class="form-check" >
+                <script>
+                    function delay()
+                    {
+                        var mybutton = document.getElementById("mybutton");
+                        mybutton.onclick = function() {
+                            mybutton.disabled = true;
+                            setTimeout(function() {
+                                mybutton.disabled = false;
+                            }, 4000);
+                        };
+
+                    };
+
+                </script>
+                <button type="submit" class="btn btn-primary" onclick="delay();">Start Studying</button>
+
+            </div>
+        </form>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block main %}
+    <form action="/new_post" method="post">
+        <label for="post_options">What is your post type?</label>
+        <select name="post_op" id="post_options" name="type">
+        <option value="Text">Text</option>
+        <option value="Image">Image</option>
+        <option value="Video">Video</option>
+        <option value="Link">Link</option>
+        </select>
+        <br>
+        <br>
+        <textarea name="content" placeholder="Content" required> </textarea>
+        <br><br>
+        <label for="myfile">Select a file:</label>
+        <input type="file" id="post_file" name="file">
+        <br>
+        <br>
+        <button type="submit">Post your knowledge!</button>
+
+
+
+    </form>
+{% endblock %}

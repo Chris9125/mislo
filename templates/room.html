@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div class = "content">
+    <h1>Welcome to Room {{room}}</h1>
+    {% set messages = get_flashed_messages() %}
+</div>
+<div id="post_button">
+    <form action="new_post", method="get">
+        <input type="hidden" name="room" value="{{room}}"></input>
+        <button type="submit">Post!</button>
+    </form>
+    <br>
+</div>
+{% for post in content %}
+<div class = "post">
+    {{post['resource_type']}} From: {{users[int(post['user_id'])-1]['username']}}
+    <br>
+    Content:
+    <br>
+    {{post['resource_content']}}
+    <br>
+    Posted at:
+    {{post['created_at']}}
+
+</div>
+    <br>
+{% endfor %}
+{% endblock %}

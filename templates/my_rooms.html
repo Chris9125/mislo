@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <div class = "container">
+        <h1>This is your rooms board</h1>
+        {% set messages = get_flashed_messages() %}
+
+        <br>
+        <div class = "create">
+            <form action = "create_room">
+                <button type="submit">Create Room</button>
+            </form>
+        </div>
+
+        <br>
+        <br>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Room ID: </th>
+                    <th>Room Title: </th>
+                    <th>Rooms Description: </th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for room in rooms %}
+                <tr>
+                    <td>{{room['room_id']}}</td>
+                    <td>{{room['room_name']}}</td>
+                    <td>{{room['description']}}</td>
+                    <td><a href = {{url_for('entering', room=room['room_id'])}}>Join</a></td>
+                </tr>
+            {% endfor %}
+            <tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
